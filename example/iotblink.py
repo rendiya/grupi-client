@@ -5,7 +5,9 @@ import time
 
 while True:
 	response = urllib2.urlopen('https://api.grupi.org/blink/')
+	print response
 	data = json.load(response)
+	print data
 	dataget = data['response']['gpio']['gpio1']
 	#print dataget
 	if dataget == "1":
