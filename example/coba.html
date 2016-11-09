@@ -21,28 +21,28 @@
       <input type = "button" id = "driveron2" value = "ON" href="#" onClick="refreshPage()"/>
       <input type = "button" id = "driveroff2" value = "OFF" href="#" onClick="refreshPage()"/>
          <script type = "text/javascript">
-            $.getJSON('http://localhost:7070/user1/', 
+            $.getJSON('https://api.grupi.org/stable/tutorial/', 
             function(json) {
-               if (json.status == "off") {
+               if (json.response.status == "off") {
                   $( "#driveroff" ).prop( "disabled", true );
                   status = "off";
                }
-               if (json.status == "on") {
+               if (json.response.status == "on") {
                   $( "#driveron" ).prop( "disabled", true );
                   status = "on";
                }
-               $("#divTest1").text(json.status);
-               if (json.status2 == "off") {
+               $("#divTest1").text(json.response.status);
+               if (json.response.status2 == "off") {
                   $( "#driveroff2" ).prop( "disabled", true );
                   status2 = "off";
 
                }
-               if (json.status2 == "on") {
+               if (json.response.status2 == "on") {
                   $( "#driveron2" ).prop( "disabled", true );
                   status2 = "on";
 
                }
-               $("#divTest2").text(json.status2);
+               $("#divTest2").text(json.response.status2);
             });
          </script>
          <script type="text/javascript">
@@ -51,7 +51,7 @@
             $("#driveron").click(function(event){
                $.ajax({
                   method: "POST",
-                  url: "http://localhost:7070/user1/",
+                  url: "https://api.grupi.org/stable/tutorial/",
                   data: data2,
                   ContentType: "application/json",
                   type:'json'
@@ -65,7 +65,7 @@
             $("#driveroff").click(function(event){
                $.ajax({
                   method: "POST",
-                  url: "http://localhost:7070/user1/",
+                  url: "https://api.grupi.org/stable/tutorial/",
                   data: data2,
                   ContentType: "application/json",
                   type:'json'
@@ -79,7 +79,7 @@
             $("#driveron2").click(function(event){
                $.ajax({
                   method: "POST",
-                  url: "http://localhost:7070/user1/",
+                  url: "https://api.grupi.org/stable/tutorial/",
                   data: data2,
                   ContentType: "application/json",
                   type:'json'
@@ -93,7 +93,7 @@
             $("#driveroff2").click(function(event){
                $.ajax({
                   method: "POST",
-                  url: "http://localhost:7070/user1/",
+                  url: "https://api.grupi.org/stable/tutorial/",
                   data: data2,
                   ContentType: "application/json",
                   type:'json'
