@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("form").submit(function(){
+		var Name = $('#DynamicValueAssignedHere').find('input[name="FirstName"]').val();
+		var Email = $('#DynamicValueAssignedHere').find('input[name="Email"]').val();
+		var Username = $('#DynamicValueAssignedHere').find('input[name="Username"]').val();
+		var Password = $('#DynamicValueAssignedHere').find('input[name="Password"]').val();
+		var Phone = $('#DynamicValueAssignedHere').find('input[name="Phone"]').val();
+		var data2 = {username:Username,password:Password,email:Email,name:Name,phone:Phone};
+		$.ajax({
+			method: "POST",
+			url: "http://localhost:7070/beta/member/register",
+			data: data2,
+			ContentType: "application/json",
+			type:'json',
+			success:function (json) {
+				if (json.status == 200){
+					alert(json.response.message);
+				}
+				else{
+					alert(json.response.message);
+				}
+            } 
+		});
+    });
+});
+</script>
+</head>
+<body>
+	<div id ="DynamicValueAssignedHere">
+	<form action="">
+		Name: <input type="text" name="FirstName" ><br>
+		Email: <input type="text" name="Email" ><br>
+		Username: <input type="text" name="Username" ><br>
+		Password: <input type="text" name="Password" ><br>
+		Phone: <input type="text" name="Phone" ><br>
+		<input type="submit" value="Submit">
+	</form>
+	</div>
+	<div id="result"></div>
+	<div id="divTest2"></div>
+</body>
+</html>
+

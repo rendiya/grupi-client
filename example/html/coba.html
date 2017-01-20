@@ -21,7 +21,9 @@
       <input type = "button" id = "driveron2" value = "ON" href="#" onClick="refreshPage()"/>
       <input type = "button" id = "driveroff2" value = "OFF" href="#" onClick="refreshPage()"/>
          <script type = "text/javascript">
-            $.getJSON('https://api.grupi.org/stable/tutorial/', 
+            $("#divTest1").text("waiting to connect");
+            $("#divTest2").text("waiting to connect");
+            $.getJSON('https://api.grupi.org/stable/tutorial/remote', 
             function(json) {
                if (json.response.status == "off") {
                   $( "#driveroff" ).prop( "disabled", true );
@@ -51,7 +53,7 @@
             $("#driveron").click(function(event){
                $.ajax({
                   method: "POST",
-                  url: "https://api.grupi.org/stable/tutorial/",
+                  url: "https://api.grupi.org/stable/tutorial/remote",
                   data: data2,
                   ContentType: "application/json",
                   type:'json'
@@ -65,7 +67,7 @@
             $("#driveroff").click(function(event){
                $.ajax({
                   method: "POST",
-                  url: "https://api.grupi.org/stable/tutorial/",
+                  url: "https://api.grupi.org/stable/tutorial/remote",
                   data: data2,
                   ContentType: "application/json",
                   type:'json'
@@ -79,7 +81,7 @@
             $("#driveron2").click(function(event){
                $.ajax({
                   method: "POST",
-                  url: "https://api.grupi.org/stable/tutorial/",
+                  url: "https://api.grupi.org/stable/tutorial/remote",
                   data: data2,
                   ContentType: "application/json",
                   type:'json'
@@ -93,7 +95,7 @@
             $("#driveroff2").click(function(event){
                $.ajax({
                   method: "POST",
-                  url: "https://api.grupi.org/stable/tutorial/",
+                  url: "https://api.grupi.org/stable/tutorial/remote",
                   data: data2,
                   ContentType: "application/json",
                   type:'json'
